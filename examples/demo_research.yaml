@@ -1,0 +1,262 @@
+# 架空の状態表示の例。本文・数値・参考資料はサンプル専用で、実在の研究成果ではない。
+meta:
+  title: ロボットの状態表示を分かりやすくする
+  subtitle: 架空の表示案を使った資料生成サンプル
+  author: サンプル発表者
+  affiliation: サンプル制作チーム
+  date: 2026-01-01
+  event: 架空の勉強会
+  theme: academic
+  audience: ロボットの表示を検討する読者
+  purpose: 架空の状態表示案と比較の進め方を説明する
+  duration_min: 12
+slides:
+- id: cover
+  layout: title_cover
+- id: agenda
+  layout: agenda
+  section: はじめに
+  title: 本日の内容
+  items:
+  - 表示の課題
+  - 表示案
+  - 比較の例
+  - まとめ
+  current: 1
+- id: background
+  layout: problem_solution
+  section: はじめに
+  title: 状態の伝え方を整理する
+  lead: ロボットの状態を読み手に伝える表示を題材にする。特定の機種や実システムは想定しない。
+  direction: h
+  problem:
+    title: 課題
+    items:
+    - 表示する情報の優先順位が分かりにくい
+    - ラベルの意味が伝わりにくい
+    - 表示案を比べる観点が必要になる
+  solution:
+    title: 説明用の表示案
+    items:
+    - 状態名と説明文を対応付ける
+    - 重要な情報を先に示す
+    - 架空の表示案を同じ観点で比較する
+  references:
+  - 架空資料 A, 状態表示の説明例（サンプル専用）.
+- id: system
+  layout: system_diagram
+  section: 表示案
+  title: 表示内容を整理する流れ
+  lead: 架空の状態名を整理し、ラベルと説明文を表示するまでの関係を示す。
+  rows: 3
+  cols: 3
+  nodes:
+  - id: input
+    label: 架空の状態
+    row: 0
+    col: 0
+    kind: io
+  - id: prepare
+    label: 状態名
+    row: 0
+    col: 1
+  - id: check
+    label: 説明文
+    row: 0
+    col: 2
+  - id: process
+    label: 表示案
+    row: 1
+    col: 1
+    kind: emphasis
+  - id: settings
+    label: 表示設定
+    row: 1
+    col: 0
+    kind: external
+  - id: robot
+    label: ラベル
+    row: 2
+    col: 0
+  - id: result
+    label: 画面例
+    row: 2
+    col: 2
+  - id: record
+    label: 比較メモ
+    row: 1
+    col: 2
+    kind: store
+  edges:
+  - from: input
+    to: prepare
+    label: 情報
+  - from: prepare
+    to: check
+  - from: check
+    to: process
+  - from: settings
+    to: process
+    dash: dash
+  - from: process
+    to: robot
+    label: 表示
+  - from: process
+    to: record
+    dash: dash
+    arrow: true
+  - from: robot
+    to: result
+    dash: dash
+  groups:
+  - label: 表示の整理
+    rows:
+    - 0
+    - 1
+    cols:
+    - 1
+    - 2
+  note: 状態名と画面構成は資料生成のために作った架空例。装置や制御方式を表していない。
+- id: algorithm
+  layout: algorithm
+  section: 表示案
+  title: 表示案の作り方
+  lead: 状態名、説明文、配置を順に整理し、架空の画面例を作る。
+  steps:
+  - label: 説明用の状態名を用意する
+    detail: 待機・実行中・確認待ちという架空の分類を使う
+  - label: 状態名に短い説明文を付ける
+  - label: ラベルと説明文を配置する
+    detail: 文字サイズと情報の順序をそろえる
+  - label: 表示案の違いを整理する
+  formulas:
+  - text: 表示例 = 状態名 + 説明文
+    number: (1)
+- id: setup
+  layout: experiment_setup
+  section: 比較の例
+  title: 表示案を比べる設定
+  lead: 二つの架空の表示案を比べる場面を設定する。利用者実験は実施していない。
+  conditions:
+  - - 対象
+    - ロボットの状態表示（架空例）
+  - - 状態名
+    - 待機 / 実行中 / 確認待ち
+  - - 案A
+    - 状態名のみ
+  - - 案B
+    - 状態名と説明文
+  - - 観点
+    - 見つけやすさ / 意味の分かりやすさ
+  - - データ
+    - グラフ表示用の架空値
+  figure:
+    type: figure
+    label: 状態ラベルの配置例（架空）
+    caption: 表示案の説明図
+  note: 比較設定も数値も説明用。実在の製品・業務・実験に基づかない。
+- id: results
+  layout: results_chart
+  section: 比較の例
+  title: 架空値でグラフの表示を確認する
+  lead: 二つの表示案のグラフ例。数値は実測値でも研究上の結果でもない。
+  chart:
+    kind: bar
+    categories:
+    - 見つけやすさ
+    - 意味の分かりやすさ
+    series:
+    - name: 案A
+      values:
+      - 3
+      - 2
+    - name: 案B
+      values:
+      - 4
+      - 4
+    caption: グラフ描画用の架空値（性能評価ではない）
+    y_title: 架空値（任意単位）
+  findings:
+  - 表示項目に応じたグラフの生成例
+  - 数値は動作確認のために設定
+  - 表示案の優劣を示す実験結果ではない
+  note: 値は架空のダミーデータ。
+- id: compare
+  layout: evaluation_matrix
+  section: 比較の例
+  title: 表示案の構成を整理する
+  lead: 架空の表示案に何を含めるかを表で整理する。採点や実測比較は行わない。
+  options:
+  - 案A
+  - 案B
+  - 案C
+  criteria:
+  - 状態名
+  - 説明文
+  - 補足欄
+  ratings:
+  - - あり
+    - なし
+    - なし
+  - - あり
+    - あり
+    - なし
+  - - あり
+    - あり
+    - あり
+  comments:
+  - 状態名のみ
+  - 説明文を追加
+  - 補足欄を追加
+- id: plan
+  layout: roadmap
+  section: まとめ
+  title: 説明資料の作成手順
+  periods:
+  - 段階1
+  - 段階2
+  - 段階3
+  - 段階4
+  lanes:
+  - 原稿
+  - 表示例
+  - 確認
+  bars:
+  - lane: 原稿
+    from: 0
+    to: 1
+    label: 状態名を整理
+  - lane: 表示例
+    from: 1
+    to: 2
+    label: 画面例を作成
+    tone: accent_pale
+  - lane: 表示例
+    from: 2
+    to: 3
+    label: 比較表を作成
+  - lane: 確認
+    from: 3
+    to: 3
+    label: 内容を確認
+    tone: accent
+  note: 工程と時期は説明用の架空例である。
+- id: summary
+  layout: summary
+  section: まとめ
+  title: まとめ
+  points:
+  - label: 架空のロボットの状態表示を題材にした
+  - label: ラベル・説明文・補足欄の違いを示した
+  - label: 実験を行わず、グラフには架空値を使った
+  next_steps:
+  - 状態名と説明文の表現を見直す
+  - 表示例と本文の対応を確認する
+- id: closing
+  layout: closing
+  title: サンプル内の参考資料
+  message: 状態名と説明文をどう配置するかを考えるための架空例である。
+  references:
+  - 架空資料 A, 状態表示の説明例（サンプル専用）.
+  - 架空資料 B, 表示案の比較メモ（サンプル専用）.
+  contact: '連絡先: presenter@example.com'

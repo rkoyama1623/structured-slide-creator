@@ -1,0 +1,104 @@
+# ---------------------------------------------------------------------------
+# neutral : 技術説明・ビジネス資料向けの既定テーマ
+# 企業ブランドに依存しない、端正で落ち着いた配色・文字組
+# ---------------------------------------------------------------------------
+name: neutral
+description: 一般的な技術説明・ビジネス資料向けの中立テーマ（既定）
+
+slide:
+  aspect: "16:9"          # 16:9 | 4:3
+  width_in: 13.333
+  height_in: 7.5
+
+fonts:
+  ja: "Yu Gothic UI"      # 和文。UD系にしたい場合は BIZ UDPGothic
+  latin: "Segoe UI"       # 欧文・数字
+  mono: "Consolas"
+  math: "Cambria Math"
+
+colors:
+  bg:        "#FFFFFF"
+  surface:   "#F4F6F8"    # 弱い面（表ヘッダ背景・補助ブロック）
+  surface_2: "#E9EDF1"
+  ink:       "#1F2328"    # 本文
+  ink_soft:  "#39414A"
+  muted:     "#667085"    # 補足・キャプション
+  rule:      "#D3D9DF"    # 罫線
+  rule_soft: "#E6EAEE"
+  accent:    "#2F5D8A"    # 主アクセント（くすんだ藍）
+  accent_2:  "#5C8AAE"
+  accent_pale: "#EAF0F6"
+  on_accent: "#FFFFFF"
+  positive:  "#3C7A5B"
+  caution:   "#A8622B"
+  critical:  "#9B3B3B"
+  # 図表の系列色（彩度を抑えた順序付きパレット）
+  series:
+    - "#2F5D8A"
+    - "#7FA6C2"
+    - "#5B7083"
+    - "#3C7A5B"
+    - "#A8622B"
+    - "#8A6CA1"
+
+type:
+  deck_title:    {size: 32,   bold: true,  color: ink,      font: ja}
+  deck_subtitle: {size: 15,   bold: false, color: muted,    font: ja}
+  deck_meta:     {size: 11,   bold: false, color: muted,    font: ja}
+  section_label: {size: 11,   bold: true,  color: accent,   font: ja}
+  slide_title:   {size: 23,   bold: true,  color: ink,      font: ja}
+  lead:          {size: 14.5, bold: false, color: ink_soft, font: ja}
+  heading:       {size: 14,   bold: true,  color: accent,   font: ja}
+  body:          {size: 13.5, bold: false, color: ink,      font: ja}
+  bullet_1:      {size: 13.5, bold: false, color: ink,      font: ja}
+  bullet_2:      {size: 12.5, bold: false, color: ink_soft, font: ja}
+  bullet_3:      {size: 12,   bold: false, color: muted,    font: ja}
+  caption:       {size: 10.5, bold: false, color: muted,    font: ja}
+  note:          {size: 10,   bold: false, color: muted,    font: ja}
+  table_header:  {size: 11.5, bold: true,  color: ink,      font: ja}
+  table_body:    {size: 11.5, bold: false, color: ink,      font: ja}
+  diagram_label: {size: 12,   bold: false, color: ink,      font: ja}
+  diagram_note:  {size: 10.5, bold: false, color: muted,    font: ja}
+  chart_text:    {size: 11,   bold: false, color: ink_soft, font: ja}
+  footer:        {size: 9.5,  bold: false, color: muted,    font: ja}
+
+layout:
+  margin_x_in: 0.62
+  margin_top_in: 0.46
+  margin_bottom_in: 0.40
+  title_h_in: 0.52
+  lead_h_in: 0.46
+  content_top_in: 1.62       # タイトル＋リード文の下端（リード無しの場合は自動で繰り上げ）
+  content_top_no_lead_in: 1.30
+  content_bottom_in: 6.88    # フッタ上端
+  gutter_in: 0.32            # 左右分割の溝
+  block_gap_in: 0.22         # ブロック間の縦の間隔
+  columns: 12
+  line_spacing: 1.22
+  para_space_after_pt: 5
+  bullet_indent_in: 0.26
+  title_rule: true           # タイトル下のヘアライン
+  title_rule_weight_pt: 1.0
+  shape_corner_radius: 0.0   # 0 = 角丸なし（既定）
+  shadow: false              # 影は使わない
+  gradient: false            # グラデーションは使わない
+
+footer:
+  show_page_number: true
+  page_number_format: "{page}"     # 例: "{page} / {total}"
+  show_section: true
+  show_deck_title: false
+  text: ""                          # 固定文言（出典・所属など）。既定は空
+
+limits:
+  min_font_pt: 9.5          # これ未満は ValueError
+  min_table_pt: 11.0       # 表セルの下限
+  min_body_pt: 12.0         # 本文の下限
+  max_title_chars: 44
+  max_lead_chars: 110
+  max_bullets: 7
+  max_bullet_chars: 64
+  max_chars_per_slide: 460
+  max_table_rows: 10
+  max_table_cols: 7
+  max_flow_steps: 6

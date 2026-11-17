@@ -1,0 +1,48 @@
+# Layout-only A3 reservation. No real figures, prose or data are inserted.
+story: message_first_story.yaml
+page:
+  width_mm: 297
+  height_mm: 420
+typography:
+  label_pt: 16
+  title_pt: 28
+pages:
+  - id: poster
+    label: 提案の論理と検証の位置を先に確認する。
+    reading_order: [title, context, proposal, mechanism, evaluation]
+    regions:
+      - id: title
+        label: 中心メッセージ
+        kind: title
+        box_mm: [10, 10, 277, 40]
+        purpose: 読者に最初に持ち帰ってほしい主張を置く。
+        priority: primary
+      - id: context
+        label: 背景・目的
+        kind: body
+        box_mm: [10, 60, 277, 50]
+        sections: [context]
+        purpose: 現状と目指す姿の差を説明する。
+      - id: proposal
+        label: 状態の分類
+        kind: figure
+        box_mm: [10, 120, 175, 160]
+        sections: [proposal]
+        assets: [process_figure]
+        purpose: 中心主張を担う表示内容に，最も大きい領域を配分する。
+        priority: primary
+      - id: mechanism
+        label: 表示ラベル
+        kind: body
+        box_mm: [195, 120, 92, 160]
+        sections: [mechanism]
+        purpose: 提案を実現するために必要な概念を説明する。
+        priority: supporting
+      - id: evaluation
+        label: 表示案の整理
+        kind: table
+        box_mm: [10, 300, 277, 90]
+        sections: [evaluation]
+        assets: [evaluation_table]
+        purpose: 表示項目の有無を整理する。実測結果は記載しない。
+        priority: supporting

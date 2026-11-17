@@ -1,0 +1,101 @@
+# ---------------------------------------------------------------------------
+# academic : 研究発表・学会発表・輪講向けテーマ
+# neutral と同じ描画コンポーネントを使い、配色・文字サイズ・余白・
+# 一部のレイアウト規則だけを切り替える（独立テンプレートではない）
+# ---------------------------------------------------------------------------
+name: academic
+description: 研究発表・学会発表・大学での活動向けテーマ
+extends: neutral            # neutral を読み込んでから以下で上書き
+
+fonts:
+  ja: "BIZ UDPGothic"       # UD書体。投影時の可読性を優先
+  latin: "Arial"
+  mono: "Consolas"
+  math: "Cambria Math"
+
+colors:
+  bg:        "#FFFFFF"
+  surface:   "#F2F5F6"
+  surface_2: "#E4EBEC"
+  ink:       "#16202B"
+  ink_soft:  "#33424F"
+  muted:     "#5F6F7B"
+  rule:      "#CBD6DA"
+  rule_soft: "#E2E9EB"
+  accent:    "#1F4E5F"      # 深い藍緑
+  accent_2:  "#4C8295"
+  accent_pale: "#E8F0F2"
+  on_accent: "#FFFFFF"
+  positive:  "#2F6B4F"
+  caution:   "#8E5A24"
+  critical:  "#8E3535"
+  series:
+    - "#1F4E5F"
+    - "#7FB0BF"
+    - "#4A5E6B"
+    - "#2F6B4F"
+    - "#8E5A24"
+    - "#6E5E8A"
+
+# 投影を前提に本文を一段大きく、情報量を抑える
+type:
+  deck_title:    {size: 30,   bold: true,  color: ink,      font: ja}
+  deck_subtitle: {size: 16,   bold: false, color: ink_soft, font: ja}
+  deck_meta:     {size: 12,   bold: false, color: muted,    font: ja}
+  section_label: {size: 11.5, bold: true,  color: accent,   font: ja}
+  slide_title:   {size: 24,   bold: true,  color: ink,      font: ja}
+  lead:          {size: 15.5, bold: false, color: ink_soft, font: ja}
+  heading:       {size: 15,   bold: true,  color: accent,   font: ja}
+  body:          {size: 15,   bold: false, color: ink,      font: ja}
+  bullet_1:      {size: 15,   bold: false, color: ink,      font: ja}
+  bullet_2:      {size: 13.5, bold: false, color: ink_soft, font: ja}
+  bullet_3:      {size: 13,   bold: false, color: muted,    font: ja}
+  caption:       {size: 11.5, bold: false, color: muted,    font: ja}
+  note:          {size: 10.5, bold: false, color: muted,    font: ja}
+  table_header:  {size: 12.5, bold: true,  color: ink,      font: ja}
+  table_body:    {size: 12.5, bold: false, color: ink,      font: ja}
+  diagram_label: {size: 13,   bold: false, color: ink,      font: ja}
+  diagram_note:  {size: 11,   bold: false, color: muted,    font: ja}
+  chart_text:    {size: 12,   bold: false, color: ink_soft, font: ja}
+  footer:        {size: 10,   bold: false, color: muted,    font: ja}
+
+layout:
+  margin_x_in: 0.70
+  margin_top_in: 0.48
+  content_top_in: 1.70
+  content_top_no_lead_in: 1.36
+  content_bottom_in: 6.82
+  gutter_in: 0.36
+  block_gap_in: 0.26
+  line_spacing: 1.28
+  para_space_after_pt: 6
+
+footer:
+  show_page_number: true
+  page_number_format: "{page} / {total}"
+  show_section: false
+  show_deck_title: false
+  text: ""
+
+# 学会発表は 1 枚の情報量をさらに絞る
+limits:
+  min_font_pt: 10.5
+  min_table_pt: 12.0       # 表セルの下限
+  min_body_pt: 13.0
+  max_title_chars: 40
+  max_lead_chars: 96
+  max_bullets: 6
+  max_bullet_chars: 56
+  max_chars_per_slide: 380
+  max_table_rows: 9
+  max_table_cols: 6
+  max_flow_steps: 5
+
+# academic 固有のレイアウト規則
+conventions:
+  numbered_figures: true     # 図表キャプションに「図1」「表1」を自動採番
+  figure_caption_prefix: "図"
+  table_caption_prefix: "表"
+  caption_position: below    # 図は下、表は上（table_caption_position）
+  table_caption_position: above
+  reference_style: bracket   # [1] 形式

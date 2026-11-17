@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "structured-slide-creator"
+version = "0.1.0"
+description = "Reproduce my own slide-making style with python-pptx, driven by Claude Code / Codex skills"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "python-pptx>=1.0",
+    "PyYAML>=6.0",
+    "Pillow>=10.0",
+]
+
+[project.optional-dependencies]
+win = ["pywin32>=306; platform_system == 'Windows'"]
+render = ["PyMuPDF>=1.24"]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+structured-slide-creator = "structured_slide_creator.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

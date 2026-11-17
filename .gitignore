@@ -1,0 +1,33 @@
+# --- confidentiality: never commit source decks or rendered pixels of them ---
+references/raw/
+*.pptx
+*.pdf
+references/**/*.pptx
+references/**/*.ppt
+references/**/*.pdf
+design_catalog/generated/**/*.png
+output/
+
+# local credentials and environment settings
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+build/
+dist/
+.ruff_cache/
+.pytest_cache/
+
+# office / os
+~$*
+Thumbs.db
+desktop.ini
+.DS_Store

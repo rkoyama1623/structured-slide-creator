@@ -1,0 +1,44 @@
+# Fictional robot status display discussion; no measured experimental results.
+message: ロボットの状態名と説明文を整理し，表示案を分かりやすく伝える。
+audience: ロボットの状態表示を検討する読者
+purpose: 架空の表示案を説明し，画面例と本文の対応を確認する。
+concepts:
+  - id: states
+    label: 状態の分類
+    definition: 待機・実行中・確認待ちという説明用の分類。
+  - id: labels
+    label: 表示ラベル
+    definition: 状態名と短い説明文を組み合わせた表示内容。
+assets:
+  - id: process_figure
+    path: reserved/process.svg
+    source: 状態名と説明文の対応を示す架空の図を今後作成する。
+    role: 状態名から表示ラベルを作る順序を説明する。
+  - id: evaluation_table
+    role: 架空の表示案に含まれる項目を整理する。実測値はない。
+sections:
+  - id: context
+    role: 背景と目的
+    claim: 状態名だけでは，読み手が表示の意味を理解しにくい場合がある。
+    body: 状態名と短い説明文を用意する例を考える。特定の機種・製品・業務は想定しない。
+  - id: proposal
+    role: 表示案の例
+    depends_on: [context]
+    introduces: [states]
+    evidence: [process_figure]
+    claim: 状態の分類を定めてから表示内容を整理する。
+    body: 待機・実行中・確認待ちという架空の状態の分類を設ける。装置の構成や動作は扱わない。
+  - id: mechanism
+    role: ラベルの構成
+    depends_on: [proposal]
+    uses: [states]
+    introduces: [labels]
+    claim: 表示ラベルには状態名と短い説明文を組み合わせる。
+    body: 状態の分類に応じて，状態名と説明文から表示ラベルを作る。文字の配置をそろえて画面例を示す。
+  - id: evaluation
+    role: 確認項目と次の展開
+    depends_on: [mechanism]
+    uses: [states, labels]
+    evidence: [evaluation_table]
+    claim: 表示案に含まれる項目を表で確認する。
+    body: 状態名・説明文・補足欄の有無を架空の表示案ごとに整理する。利用者実験や性能比較は実施していない。
